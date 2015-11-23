@@ -58,6 +58,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.session.MediaController;
 import android.net.Uri;
@@ -920,6 +921,15 @@ public class Activity extends ContextThemeWrapper
             mVoiceInteractor.attachActivity(this);
         }
         mCalled = true;
+
+        /* tints the navbar as status bar */
+        /* TODO ADD A PREFERENCE HERE */
+		int colorPrimaryDark = getWindow().getStatusBarColor();
+
+		if (colorPrimaryDark != Color.TRANSPARENT && colorPrimaryDark != Color.BLACK) {
+			getWindow().setNavigationBarColor(colorPrimaryDark);
+		}
+
     }
 
     /**
